@@ -1,0 +1,39 @@
+
+// Error Alert
+$borderColor: rgba(255, 25, 0, 0.322 );
+$errorBg: rgb(192 29 29 / 15%);
+$errorColor: #ef8d8dfa;
+
+.alert-danger {
+    border: 2px dotted $borderColor;
+    border-radius: 0.8rem;
+    padding: 1.3rem;
+    color: $errorColor;
+    background-color: $errorBg;
+
+    .alert-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .alert-title {
+            display: flex;
+            align-items: center;
+
+            svg {
+                margin-right: 0.5rem;
+            }
+        }
+
+        .close {
+            cursor: pointer;
+        }
+    }
+
+    p {
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        margin-top: 1rem;
+    }
+}
