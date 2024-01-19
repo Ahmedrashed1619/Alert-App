@@ -1,39 +1,70 @@
+// ** Default
+$defaultBg: rgb(29 31 32 / 71%);
+$defaultColor: #c8c8c8;
+$defaultBorder: #c8c8c8;
 
-// Error Alert
-$borderColor: rgba(255, 25, 0, 0.322 );
+// ** Info
+$infoColor: #bcc0ff;
+$infoBorder: #646cff;
+$infoBg: rgb(100 108 255 / 8%);
+
+// ** Warning
+$warningBg: rgb(255 197 23 / 5%);
+$warningColor: #fcd253;
+$warningBorder: rgba(255, 213, 0, 0.793);
+
+// ** Error
 $errorBg: rgb(192 29 29 / 15%);
 $errorColor: #ef8d8dfa;
+$errorBorder: rgba(255, 25, 0, 0.322);
 
-.alert-danger {
-    border: 2px dotted $borderColor;
-    border-radius: 0.8rem;
-    padding: 1.3rem;
-    color: $errorColor;
-    background-color: $errorBg;
+// ** Success
+$successBg: rgba(165, 255, 100, 0.127);
+$successColor: #7acf58d6;
+$successBorder: rgba(0, 255, 0, 0.322);
 
-    .alert-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        .alert-title {
+
+@mixin alert($alert-type, $borderColor, $colorBg, $color) {
+    .#{$alert-type} {
+        border: 2px dotted $borderColor;
+        border-radius: 0.8rem;
+        padding: 1.3rem;
+        margin-bottom: 1rem;
+        color: $color;
+        background-color: $colorBg;
+    
+        .alert-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-
-            svg {
-                margin-right: 0.5rem;
+    
+            .alert-title {
+                display: flex;
+                align-items: center;
+                font-size: 1.2rem;
+    
+                svg {
+                    margin-right: 0.5rem;
+                }
+            }
+    
+            .close {
+                cursor: pointer;
             }
         }
-
-        .close {
-            cursor: pointer;
+    
+        p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+            margin-top: 1rem;
         }
     }
-
-    p {
-        font-size: 0.9rem;
-        font-weight: 500;
-        line-height: 1.5rem;
-        margin-top: 1rem;
-    }
 }
+
+@include alert(alert-default, $defaultBorder, $defaultBg, $defaultColor);
+@include alert(alert-info, $infoBorder, $infoBg, $infoColor);
+@include alert(alert-warning, $warningBorder, $warningBg, $warningColor);
+@include alert(alert-error, $errorBorder, $errorBg, $errorColor);
+@include alert(alert-success, $successBorder, $successBg, $successColor);

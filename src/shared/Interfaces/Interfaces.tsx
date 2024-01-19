@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
 
 export interface IAlertProps {
     title: string,
     description: string,
-    image?: string
+    icon: ReactNode,
+    type: string
 }

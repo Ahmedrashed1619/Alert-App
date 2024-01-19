@@ -25,3 +25,9 @@ body {
   background-color: black;
   color: rgb(var(--foreground-rgb));
 }
+
+.container {
+  width: 95%;
+  margin-inline: auto;
+  margin-block: 2rem;
+}
