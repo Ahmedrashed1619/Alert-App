@@ -1,8 +1,10 @@
 import { ReactNode } from "react";
+import { AlertTypes } from "../Types/Types";
 
-export interface IAlertProps {
+export interface IAlertInterface {
+    type: AlertTypes,
     title: string,
-    description: string,
     icon: ReactNode,
-    type: string
+    description?: string,
+    children?: ReactNode
 }

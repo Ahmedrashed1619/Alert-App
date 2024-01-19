@@ -1,10 +1,10 @@
 
-import { IAlertProps } from '../../shared/Interfaces/Interfaces';
+import { IAlertInterface } from '../../shared/Interfaces/Interfaces';
 import './Alert.scss';
 import { X } from 'lucide-react';
 
 
-const Alert = ({type = "alert-default", icon, title}: IAlertProps) => {
+const Alert = ({type = "alert-default", icon, title, description, children}: IAlertInterface) => {
   return (
     <div className={type}>
       <div className="alert-header">
@@ -14,8 +14,7 @@ const Alert = ({type = "alert-default", icon, title}: IAlertProps) => {
         </div>
         <X className='close' size={20} />
       </div>
-      
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam autem obcaecati dolorem impedit mollitia cumque aut illo aliquid tempore quaerat.</p>
+      {children ? children : <p>{description}</p>}
     </div>
   )
 }
